@@ -86,7 +86,7 @@ body {
 }
 
 .card-body .title {
-    width: 50%;
+    width: 43%;
     text-align: left;
 }
 
@@ -206,6 +206,14 @@ body {
     padding: 10px;
     color: #fff;
     border-radius: 10px;
+}
+
+.btn-w .input-btn-w {
+	background-color: tomato;
+  padding: 10px;
+  color: #fff;
+  border-radius: 10px;
+  border: 1px solid #fff;
 }
 
 .card-header3 {

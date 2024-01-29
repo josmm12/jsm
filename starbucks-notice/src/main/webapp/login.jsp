@@ -1,18 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-<%@ page import = "java.sql.DriverManager" %>
-<%@ page import = "java.sql.Connection" %>
-<%@ page import = "java.sql.Statement" %>
-<%@ page import = "java.sql.ResultSet" %>
-<%@ page import = "java.lang.Exception, java.sql.SQLException" %>
-
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Starbucks Korea Coffee</title>
+    <title>공지사항 | Starbucks Korea</title>
     <!-- 파피콘 -->
     <link rel="icon" href="./images/favicon.ico">
     
@@ -42,35 +35,30 @@
     <!--Swiper-->
     <link rel="stylesheet" href="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.js"></script>
-
-    <script defer src="./js/main.js"></script>    
 </head>
-
 <body>
-    <header>
+	<header>
 		<%@ include file="./header.jsp" %>
 	</header>
 	
-	  <!-- notice list  -->
-        <section>
-        	<div class="inner sub_tit_wrap">
-                <div class="sub_tit_inner">
-                    <h2><img src="https://www.starbucks.co.kr/common/img/whatsnew/notice_tit.jpg" alt="공지사항"></h2>
-                    <ul class="smap">
-                        <li><a href="#"><img src="https://image.istarbucks.co.kr/common/img/common/icon_home.png" alt="홈으로"></a></li>
-                        <li><img class="arrow" src="https://image.istarbucks.co.kr/common/img/common/icon_arrow.png" alt="하위메뉴"></li>
-                        <li class="en"><a href="#">WHAT'S NEW</a></li>
-                        <li><img class="arrow" src="https://image.istarbucks.co.kr/common/img/common/icon_arrow.png" alt="하위메뉴"></li>
-                        <li><a href="#" class="this">공지사항</a></li>
-                    </ul>
-                </div>
-            </div>
-       </section>
-       
-       <section>
-       		<div class="container">
-       				<div class="mcontainer">
-       				
-       				</div>
-       		</div>
-       </section>
+	<div class="inner log_bg">
+		<div class="log_box_wa">
+			로그인
+		</div>
+		<form class="fologin">
+			<p class="logtext">	
+				<span class="welco">Welcome!</span>
+				<span class="top_text">스타벅스 코리아에 오신 것을 환영합니다.</span>
+			</p>
+		<div class="log_box">
+			<div class="log_box_id">
+				<input class="log_id" type="text" placeholder="아이디를 입력해 주세요.">
+			</div>	
+			<div class="log_box_pw">
+				<input class="log_pw" type="password" placeholder="비밀번호를 입력해 주세요.">
+			</div>
+		</div>	
+		</form>
+	</div>
+</body>
+</html>

@@ -6,13 +6,14 @@
 <%@ page import = "java.sql.Statement" %>
 <%@ page import = "java.sql.ResultSet" %>
 <%@ page import = "java.lang.Exception, java.sql.SQLException" %>
-
+<%@ page import="java.sql.*" %>
+    
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Starbucks Korea Coffee</title>
+    <title>공지사항 | Starbucks Korea</title>
     <!-- 파피콘 -->
     <link rel="icon" href="./images/favicon.ico">
     
@@ -45,16 +46,15 @@
 
     <script defer src="./js/main.js"></script>    
 </head>
-
 <body>
-    <header>
+	<header>
 		<%@ include file="./header.jsp" %>
 	</header>
 	
 	  <!-- notice list  -->
         <section>
         	<div class="inner sub_tit_wrap">
-                <div class="sub_tit_inner">
+                <div class="sub_tit_wrap2">
                     <h2><img src="https://www.starbucks.co.kr/common/img/whatsnew/notice_tit.jpg" alt="공지사항"></h2>
                     <ul class="smap">
                         <li><a href="#"><img src="https://image.istarbucks.co.kr/common/img/common/icon_home.png" alt="홈으로"></a></li>
@@ -64,13 +64,69 @@
                         <li><a href="#" class="this">공지사항</a></li>
                     </ul>
                 </div>
-            </div>
-       </section>
-       
-       <section>
-       		<div class="container">
-       				<div class="mcontainer">
-       				
-       				</div>
-       		</div>
-       </section>
+            </div>            
+      </section>
+      
+    <div class="inner notice__list_in">
+	  	<div class="notice__header_in">
+<%
+			String num = request.getParameter("num");			
+
+				String JDBC_URL = "jdbc:oracle:thin:@localhost:1521:orcl";
+		    String USER = "jsp";
+		    String PASSWORD = "123456";
+	
+		    Connection conn = null; //디비 접속 성공시 접속 정보 저장
+				Statement stmt = null; //쿼리를 실행하기 객체 정보
+				PreparedStatement pstmt = null; // 쿼리 CUD 실행문
+				ResultSet rs = null;
+	
+				Exception exception = null;
+				
+				String title = "";
+				String content = "";
+				
+				String sql = null;
+				int re = 0;
+			
+  try {
+	  
+	  		Class.forName("oracle.jdbc.driver.OracleDriver");
+	  		
+		// 1. JDBC로 Oracle연결
+		
+		    conn = DriverManager.getConnection(JDBC_URL, USER, PASSWORD);
+		    
+	  
+		// 2. BO_FREE 테이블에서 SQL로 데이터 가져오기
+					String updateQuery = "UPDATE BO_FREE SET HIT = HIT + 1 WHERE NUM = ?";
+					pstmt = conn.prepareStatement(updateQuery);
+					pstmt.setInt(1, Integer.parseInt(num));
+
+					pstmt.executeUpdate();
+					
+					stmt = conn.createStatement();
+					rs = stmt.executeQuery("SELECT NUM, NAME, SUBJECT, CONTENT FROM BO_FREE WHERE NUM = " + num);
+					
+	 	
+	 	// 3. rs로 데이터 가져온 걸 웹에 보여주기 -> 쿼리 실행 결과 출력
+	 	if (rs.next()) {
+	 		title = rs.getString("SUBJECT");
+	 		content = rs.getString("CONTENT");
+	 	}
+ } catch(Exception e) {
+	  exception = e;
+	  e.printStackTrace();
+ } finally {
+	  if (pstmt != null) try { pstmt.close(); } catch (SQLException ex) {}
+	  if (conn != null) try { conn.close(); } catch (SQLException ex) {}
+ }
+  
+%>
+		<h3><%= title %></h3>
+		<p><%= content %></p>
+		
+	  	</div>
+   </div>	
+</body>
+</html>

@@ -1,4 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+	list-style: none;
+}
+
+head {
+    display: none;
+}
+
 body {
+	display: block;
     font-family: 'Nanum Gothic', sans-serif;
     height: 3000px;
 }
@@ -16,6 +30,7 @@ img {
 }
 
 a {
+	color: inherit;
     text-decoration: none;
 }
 
@@ -265,8 +280,8 @@ header .main-menu {
 
   header .badges {
     position: absolute;
-    top: 132px;    
-    left: 89%;   
+    top: 135px; 
+    left: 92%;
   }
 
   header .badges .badge {
@@ -572,33 +587,27 @@ header .main-menu {
     height: 241px;
   }
 
-  .inner {
-    width: 1100x;
-    margin: 0 auto;
-    position: relative;
-  }
-
-  .rewards .btn-group {
-
-  }
-  
-  
   .sub_tit_wrap {
 	margin-top: 120px;
-}
-
-.sub_tit_wrap .sub_tit_inner h2 {
-	padding: 20px;
-}
-
-.sub_tit_wrap .sub_tit_inner ul.smap {
-	display: flex;
-	justify-content: flex-end;
-}
-
-.sub_tit_wrap .sub_tit_inner ul.smap li {
-	margin-right: 20px;
-}
+  }
+  
+  .sub_tit_wrap .sub_tit_wrap2 {
+		
+  }
+  
+  .sub_tit_wrap .sub_tit_wrap2 h2 {
+	  padding: 30px;
+  }
+  
+  .sub_tit_wrap .sub_tit_wrap2 .smap {
+	  display: flex;
+	  justify-content: flex-end;
+  }
+  
+    .sub_tit_wrap .sub_tit_wrap2 .smap li {
+		font-size: 12px;
+		margin-right: 5px;
+	}
 
 .notice_wrap {
 	width: 1100px;
@@ -611,7 +620,7 @@ header .main-menu {
 	height: 38px;
 	background-color: #f4f4f2;
 	position: relative;
-	margin-top: 40px;
+	margin-top: 10px;
 }
 
 .notice_wrap .sch_wrap .sch_wraps {
@@ -642,7 +651,36 @@ header .main-menu {
 
 
 .notice__list {
-	margin-top: 34px;
+	margin-top: -45px;
+}
+
+.notice__list_in {
+	margin-top: 20px;
+}
+
+.notice__list_in .notice__header_in {
+	width: 100%;
+	display: flex;
+	padding: 20px 0;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #000;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #000;
+}
+
+.notice__list_in .notice__header_in h3{
+	font-size: 18px;
+	font-weight: bold;
+	color: #222222;
+	margin-left: 15px;
+}
+
+.notice__list_in .notice__header_in p{
+	position: absolute;
+	top: 93px;
+	left: 13px;
 }
 
 .notice__list .notice__header {
@@ -686,7 +724,9 @@ header .main-menu {
 
 .notice__list .notice__list__itmes ul {
 	display: flex;
+	padding: 35px 0;
 	width: 100%;
+	border-bottom: 1px solid #dddddd;
 }
 
 .notice__list .notice__list__itmes ul li {
@@ -728,10 +768,68 @@ header .main-menu {
 .container .mcontainer {
 	position: absolute;
 	margin-top: 20px;
-	width: 80%;
-	right: 300px;
+	width: 50%;
+	right: 380px;
 	border-top: 1px solid #333333;
     border-bottom: 1px solid #333333;
     padding: 20px 140px 20px 20px;
 }
 
+.log_bg {
+	background: url('../images/login_bg.jpg');
+	width: 100%;
+	height: 1500px;
+	position: relative;
+}
+
+.log_bg .log_box_wa {
+	position: absolute;
+	top: 150px;
+	left: 880px;
+	padding: 70px 0 50px;
+	color: white;
+	font-size: 30px;
+	font-weight: normal;
+}
+
+.log_bg .fologin {
+	position: absolute;
+	width: 570px;
+	height: 570px;
+	background-color: #fff;
+	top: 300px;
+	left: 643px;
+
+}
+
+.log_bg .fologin .logtext {
+	text-align: center;
+	padding: 30px;
+	border-bottom: 1px solid gray;
+}
+
+.log_bg .fologin .logtext .welco{
+	color: #006633;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.log_bg .fologin .log_box {
+	position: absolute;
+	top: 110px;
+	left: 8px;
+}
+
+.log_bg .fologin .log_box .log_box_id {
+	padding-bottom: 10px;
+}
+
+.log_bg .fologin .log_box .log_box_id .log_id {
+	width: 550px;
+	height: 50px;
+}
+
+.log_bg .fologin .log_box .log_box_pw .log_pw {
+	width: 550px;
+	height: 50px;
+}
